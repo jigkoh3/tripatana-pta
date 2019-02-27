@@ -1,3 +1,30 @@
 <div class="content">
-  
+    <div class="row mt-2">
+        <div class="col-12 ">
+            <agm-map [latitude]="lat" [longitude]="lng" [zoom]="16">
+
+
+                <agm-marker *ngFor="let st of stations" [latitude]="st.lat" [longitude]="st.lng" [iconUrl]="{
+                  url: st.aqi < 38 ? './assets/svg/green.svg' : st.aqi < 50 ? './assets/svg/yellow.svg' : st.aqi < 100 ? './assets/svg/orange.svg' : './assets/svg/red.svg',
+                  scaledSize: {
+                    width: 40,
+                    height: 40
+                  }
+                }">
+                    <agm-info-window >
+                        <h6>{{st.name}}</h6>
+                        <h6>pm2.5: {{st.aqi}}</h6>
+                    </agm-info-window>
+                </agm-marker>
+                <agm-marker [latitude]="lat" [longitude]="lng" [iconUrl]="icon">
+    
+                </agm-marker>
+            </agm-map>
+        </div>
+        <!-- <div class="col-5">
+            <div class="row">
+                <div class="col-12"><mat-card>Simple card</mat-card></div>
+            </div>
+        </div> -->
+    </div>
 </div>

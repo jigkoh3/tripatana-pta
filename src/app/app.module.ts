@@ -16,6 +16,7 @@ import { HeaderToolbarComponent } from "./components/header-toolbar/header-toolb
 import { environment } from "src/environments/environment";
 import { AuthModule } from "ng6-md-auth";
 
+import { AgmCoreModule } from '@agm/core';
 
 const apiSrvCfg = environment;
 @NgModule({
@@ -33,6 +34,9 @@ const apiSrvCfg = environment;
     BrowserAnimationsModule,
     MaterialModule,
     FormsModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyBWnJYU8_L7GeDhVK1g_QAG3ukVM1JO_H0'
+    }),
     ReactiveFormsModule.withConfig({ warnOnNgModelWithFormControl: "never" }),
     HttpClientModule,
     NgxSpinnerModule,
