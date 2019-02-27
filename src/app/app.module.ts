@@ -15,6 +15,7 @@ import { NgxSpinnerModule } from "ngx-spinner";
 import { HeaderToolbarComponent } from "./components/header-toolbar/header-toolbar.component";
 import { environment } from "src/environments/environment";
 import { AuthModule } from "ng6-md-auth";
+import { ChartModule } from 'angular2-chartjs';
 
 import { AgmCoreModule } from '@agm/core';
 
@@ -35,6 +36,7 @@ const apiSrvCfg = environment;
     MaterialModule,
     FormsModule,
     HttpClientModule,
+    ChartModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBWnJYU8_L7GeDhVK1g_QAG3ukVM1JO_H0'
     }),

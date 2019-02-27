@@ -5,7 +5,7 @@
 
 
                 <agm-marker *ngFor="let st of stations" [latitude]="st.lat" [longitude]="st.lng" [iconUrl]="{
-                  url: st.sum < 38 ? './assets/svg/green.svg' : st.sum < 50 ? './assets/svg/yellow.svg' : st.sum < 100 ? './assets/svg/orange.svg' : './assets/svg/red.svg',
+                  url:st.sum == 0 ? './assets/svg/power-button.svg' : st.sum < 38 ? './assets/svg/green.svg' : st.sum < 50 ? './assets/svg/yellow.svg' : st.sum < 100 ? './assets/svg/orange.svg' : './assets/svg/red.svg',
                   scaledSize: {
                     width: 40,
                     height: 40
@@ -21,7 +21,7 @@
                 </agm-marker>
             </agm-map>
         </div>
-        
+
     </div>
     <div class="row mt-2">
         <div class="col-12">
@@ -39,15 +39,22 @@
 
             <div class="row border-data" *ngFor="let item of stations">
                 <div class="col-4 border-right">
-                    <p class="mt-2 mb-2">{{item.title}}</p>
+                    <p class="mt-2 mb-2">{{item.name}}</p>
                 </div>
                 <div class="col-4 text-center border-right">
-                    <p class="mt-2 mb-2">{{item.timeago}}</p>
+                    <p class="mt-2 mb-2">
+                        {{item.timeago !=="" ? item.timeago : "ไม่มีการรายงานภายใน 1 ชั่วโมงที่ผ่านมา"}}</p>
                 </div>
                 <div class="col-4 text-center">
-                    <p class="mt-2 mb-2">{{item.sum}}</p>
+                    <p class="mt-2 mb-2">{{item.sum > 0 ? item.sum : '-'}}</p>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-12">
+            <chart [type]="typeChart" [data]="dataChart" [options]="optionsChart"></chart>
         </div>
     </div>
 </div>
