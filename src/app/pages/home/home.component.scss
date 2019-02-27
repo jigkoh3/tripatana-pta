@@ -20,3 +20,17 @@ agm-map {
   height: 600px;
   // width: 900px;
 }
+
+.border-header {
+  border: solid 1px lightgray;
+}
+
+.border-right {
+  border-right:  solid 1px lightgray;
+}
+
+.border-data {
+  border-right:  solid 1px lightgray;
+  border-left:  solid 1px lightgray;
+  border-bottom:  solid 1px lightgray;
+}

@@ -34,6 +34,7 @@ const apiSrvCfg = environment;
     BrowserAnimationsModule,
     MaterialModule,
     FormsModule,
+    HttpClientModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBWnJYU8_L7GeDhVK1g_QAG3ukVM1JO_H0'
     }),
@@ -45,4 +46,4 @@ const apiSrvCfg = environment;
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

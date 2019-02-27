@@ -1,30 +1,53 @@
 <div class="content">
     <div class="row mt-2">
         <div class="col-12 ">
-            <agm-map [latitude]="lat" [longitude]="lng" [zoom]="16">
+            <agm-map [latitude]="lat" [longitude]="lng" [zoom]="14">
 
 
                 <agm-marker *ngFor="let st of stations" [latitude]="st.lat" [longitude]="st.lng" [iconUrl]="{
-                  url: st.aqi < 38 ? './assets/svg/green.svg' : st.aqi < 50 ? './assets/svg/yellow.svg' : st.aqi < 100 ? './assets/svg/orange.svg' : './assets/svg/red.svg',
+                  url: st.sum < 38 ? './assets/svg/green.svg' : st.sum < 50 ? './assets/svg/yellow.svg' : st.sum < 100 ? './assets/svg/orange.svg' : './assets/svg/red.svg',
                   scaledSize: {
                     width: 40,
                     height: 40
                   }
                 }">
-                    <agm-info-window >
-                        <h6>{{st.name}}</h6>
-                        <h6>pm2.5: {{st.aqi}}</h6>
+                    <agm-info-window>
+                        <h6>{{st.title}}</h6>
+                        <h6>pm2.5: {{st.sum}}</h6>
                     </agm-info-window>
                 </agm-marker>
                 <agm-marker [latitude]="lat" [longitude]="lng" [iconUrl]="icon">
-    
+
                 </agm-marker>
             </agm-map>
         </div>
-        <!-- <div class="col-5">
-            <div class="row">
-                <div class="col-12"><mat-card>Simple card</mat-card></div>
+        
+    </div>
+    <div class="row mt-2">
+        <div class="col-12">
+            <div class="row mt-4 border-header ">
+                <div class="col-4 text-center border-right">
+                    <P class="mt-2 mb-2">ชื่อสถานี</P>
+                </div>
+                <div class="col-4 text-center border-right">
+                    <p class="mt-2 mb-2">PM2.5 (อัพเดทล่าสุด)</p>
+                </div>
+                <div class="col-4 text-center ">
+                    <p class="mt-2 mb-2">PM2.5 (Avg1h)</p>
+                </div>
             </div>
-        </div> -->
+
+            <div class="row border-data" *ngFor="let item of stations">
+                <div class="col-4 border-right">
+                    <p class="mt-2 mb-2">{{item.title}}</p>
+                </div>
+                <div class="col-4 text-center border-right">
+                    <p class="mt-2 mb-2">{{item.lasted}}</p>
+                </div>
+                <div class="col-4 text-center">
+                    <p class="mt-2 mb-2">{{item.sum}}</p>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
